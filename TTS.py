@@ -64,24 +64,3 @@ for i in range(len(data)):
     output.writeframes(data[i][1])
 output.close()
 print('Audio content written to', outputFileName + ".")
-
-# audioContentArray = []
-
-# n = 0
-# for line in lines:
-#     n = n + 1
-#     audioContentArray.append(text_to_wav('en-AU-Wavenet-D', line, False, "_"))
-#     print("Got Audio, (" + str(round(((n / len(lines)) * 100))) + "%) done.")
-
-
-# fullAudio = None
-# for audio in audioContentArray:
-#     if fullAudio == None:
-#         fullAudio = audio
-#     else:
-#         fullAudio = fullAudio + audio
-
-# outputFileName = 'Output/Output_' + str(datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + '.wav'
-# output = open(outputFileName, 'wb')
-# output.write(fullAudio)
-# print('Audio content written to', outputFileName + ".")
