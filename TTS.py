@@ -16,7 +16,7 @@ def text_to_wav(voice_name, text, outputFile, filename):
         language_code=language_code,
         name=voice_name)
     audio_config = tts.AudioConfig(
-        audio_encoding=tts.AudioEncoding.LINEAR16, speaking_rate=1.0)
+        audio_encoding=tts.AudioEncoding.LINEAR16, speaking_rate=speakingRate)
 
     client = tts.TextToSpeechClient()
     response = client.synthesize_speech(
@@ -34,9 +34,11 @@ def text_to_wav(voice_name, text, outputFile, filename):
 inputTextFile = open("input-text.txt", 'r', encoding="utf8")
 text = inputTextFile.read()
 
-lines = textwrap.wrap(text, width=2000, break_long_words=False)
-
 speakingRate = float(input("Enter the Speaking Rate: "))
+characterLength = (1000 + (((speakingRate - 1) / 0.5) * 1000))
+print(characterLength)
+
+lines = textwrap.wrap(text, width= characterLength, break_long_words=False)
 
 n = 0
 for line in lines:
