@@ -38,12 +38,16 @@ characterLength = (1000 + (((speakingRate - 1) / 0.5) * 1000))
 
 speakingPitch = float(input("Enter the Pitch: "))
 
+speakerVoice = float(input("Enter the Speaker Voice (If nothing is entered it will default to en-AU-Wavenet-D): "))
+if (speakerVoice == ""):
+    speakerVoice = "en-AU-Wavenet-D"
+
 lines = textwrap.wrap(text, width= characterLength, break_long_words=False)
 
 n = 0
 for line in lines:
     n = n + 1
-    text_to_wav('en-AU-Wavenet-D', line, True, "temp/File_" + str(n))
+    text_to_wav(speakerVoice, line, True, "temp/File_" + str(n))
     print("Got Audio, (" + str(round(((n / len(lines)) * 100))) + "%) done.")
 
 outputFileName = 'Output/Output_' + str(datetime.now().strftime("%Y-%m-%d_%H-%M-%S")) + '.wav'
