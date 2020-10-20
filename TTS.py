@@ -38,7 +38,7 @@ characterLength = (1000 + (((speakingRate - 1) / 0.5) * 1000))
 
 speakingPitch = float(input("Enter the Pitch: "))
 
-speakerVoice = float(input("Enter the Speaker Voice (If nothing is entered it will default to en-AU-Wavenet-D): "))
+speakerVoice = input("Enter the Speaker Voice (If nothing is entered it will default to en-AU-Wavenet-D): ")
 if (speakerVoice == ""):
     speakerVoice = "en-AU-Wavenet-D"
 
